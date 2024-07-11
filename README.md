@@ -1,4 +1,4 @@
-# Laravel 10 密切關注伺服器健康狀況
+# Laravel 11 密切關注伺服器健康狀況
 
 可以使用健康狀況資訊當做診斷協助來偵測並更正問題，同時也能夠協助找出潛在的問題並避免發生，密切關注的目標是要讓例外情形未獲得偵測（亦即未解決）的時間減至最少。
 
@@ -20,20 +20,27 @@ $ php artisan key:generate
 ```sh
 $ php artisan migrate
 ```
-- 執行 __Artisan__ 指令的 __server-monitor:run-checks__ 來執行健康檢查。
+- 執行 __Artisan__ 指令的 __server-monitor:add-host__ 來新增主機。
 ```sh
-$ php artisan server-monitor:run-checks
+$ php artisan server-monitor:add-host
 ```
 - 執行 __Artisan__ 指令的 __server-monitor:list-checks__ 來列出所有設定的健康檢查。
 ```sh
 $ php artisan server-monitor:list-checks
 ```
+- 執行 __Artisan__ 指令的 __server-monitor:run-checks__ 來執行健康檢查。
+```sh
+$ php artisan server-monitor:run-checks
+```
 
 ----
 
 ## 畫面截圖
-![](https://i.imgur.com/LtHtykv.png)
-> 手動執行健康檢查
+![](https://i.imgur.com/8tAlsoG.png)
+> 系統將提示您輸入主機名稱、SSH 使用者和用於連接伺服器的連接埠以及應執行的檢查
 
-![](https://i.imgur.com/AcgvC5N.png)
+![](https://i.imgur.com/In9CrWX.png)
 > 列出所有設定的健康檢查以了解伺服器健康情況
+
+![](https://i.imgur.com/wV2Gcb6.png)
+> 手動執行健康檢查

@@ -3,19 +3,17 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateChecksTable extends Migration
+return new class extends Migration
 {
     /**
      * Run the migrations.
-     *
-     * @return void
      */
-    public function up()
+    public function up(): void
     {
         Schema::create('checks', function (Blueprint $table) {
-            $table->increments('id');
+            $table->id();
             $table->integer('host_id')->unsigned();
-            $table->foreign('host_id')->references('id')->on('hosts')->onDelete('cascade');
+            $table->foreignId('user_id')->nullable()->constrained()->onDelete('cascade');
             $table->string('type');
             $table->string('status')->nullable();
             $table->boolean('enabled')->default(true);
@@ -31,11 +29,9 @@ class CreateChecksTable extends Migration
 
     /**
      * Reverse the migrations.
-     *
-     * @return void
      */
-    public function down()
+    public function down(): void
     {
         Schema::drop('checks');
     }
-}
+};

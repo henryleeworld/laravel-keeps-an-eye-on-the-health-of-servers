@@ -8,18 +8,10 @@ return [
      * `Spatie\ServerMonitor\Checks\CheckDefinitions\CheckDefinition` class.
      */
     'checks' => [
-        'cpu-load' => Jcergolj\CustomChecks\CpuLoadCheck::class,
-        'db-connection-count' => Jcergolj\CustomChecks\DbConnectionCountCheck::class,
         'diskspace' => Spatie\ServerMonitor\CheckDefinitions\Diskspace::class,
         'elasticsearch' => Spatie\ServerMonitor\CheckDefinitions\Elasticsearch::class,
-        'horizon-artisan-command' => Jcergolj\CustomChecks\HorizonArtisanCommandCheck::class,
-        'horizon-supervisor' => Jcergolj\CustomChecks\HorizonSupervisorCheck::class,
-        'horizon-worker' => Jcergolj\CustomChecks\HorizonWorkerCheck::class,
         'memcached' => Spatie\ServerMonitor\CheckDefinitions\Memcached::class,
         'mysql' => Spatie\ServerMonitor\CheckDefinitions\MySql::class,
-        'queue-worker' => Jcergolj\CustomChecks\QueueWorkerCheck::class,
-        'redis' => Jcergolj\CustomChecks\RedisCheck::class,
-        'redis-memory' => Jcergolj\CustomChecks\RedisMemoryCheck::class,
     ],
 
     /*
@@ -49,9 +41,9 @@ return [
 
         'notifications' => [
             Spatie\ServerMonitor\Notifications\Notifications\CheckSucceeded::class => [],
-            Spatie\ServerMonitor\Notifications\Notifications\CheckRestored::class => ['mail'],
-            Spatie\ServerMonitor\Notifications\Notifications\CheckWarning::class => ['mail'],
-            Spatie\ServerMonitor\Notifications\Notifications\CheckFailed::class => ['mail'],
+            Spatie\ServerMonitor\Notifications\Notifications\CheckRestored::class => ['slack'],
+            Spatie\ServerMonitor\Notifications\Notifications\CheckWarning::class => ['slack'],
+            Spatie\ServerMonitor\Notifications\Notifications\CheckFailed::class => ['slack'],
         ],
 
         /*
@@ -96,7 +88,7 @@ return [
     'check_model' => Spatie\ServerMonitor\Models\Check::class,
 
     /*
-     * Right before running a check it's process will be given to this class. Here you
+     * Right before running a check its process will be given to this class. Here you
      * can perform some last minute manipulations on it before it will
      * actually be run.
      *
