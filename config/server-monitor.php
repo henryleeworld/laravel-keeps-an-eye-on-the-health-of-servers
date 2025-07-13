@@ -41,9 +41,9 @@ return [
 
         'notifications' => [
             Spatie\ServerMonitor\Notifications\Notifications\CheckSucceeded::class => [],
-            Spatie\ServerMonitor\Notifications\Notifications\CheckRestored::class => ['slack'],
-            Spatie\ServerMonitor\Notifications\Notifications\CheckWarning::class => ['slack'],
-            Spatie\ServerMonitor\Notifications\Notifications\CheckFailed::class => ['slack'],
+            Spatie\ServerMonitor\Notifications\Notifications\CheckRestored::class => [],
+            Spatie\ServerMonitor\Notifications\Notifications\CheckWarning::class => [],
+            Spatie\ServerMonitor\Notifications\Notifications\CheckFailed::class => [],
         ],
 
         /*

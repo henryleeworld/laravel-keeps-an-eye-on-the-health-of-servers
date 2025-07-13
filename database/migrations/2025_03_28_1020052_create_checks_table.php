@@ -12,8 +12,7 @@ return new class extends Migration
     {
         Schema::create('checks', function (Blueprint $table) {
             $table->id();
-            $table->integer('host_id')->unsigned();
-            $table->foreignId('user_id')->nullable()->constrained()->onDelete('cascade');
+            $table->foreignId('host_id')->constrained()->onDelete('cascade');
             $table->string('type');
             $table->string('status')->nullable();
             $table->boolean('enabled')->default(true);
